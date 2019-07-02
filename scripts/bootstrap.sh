@@ -16,7 +16,7 @@ curl -s --location "https://github.com/weaveworks/eksctl/releases/download/lates
 
 echo "Creating SSH Key Pair"
 
-ssh-keygen -N "" -f ~/.ssh/id_rsa
+ssh-keygen -N "" -f ~/.ssh/id_rsa > /dev/null
 aws ec2 import-key-pair --key-name "eks" --public-key-material file://~/.ssh/id_rsa.pub
 
 echo "Clearing temporary credentials"
