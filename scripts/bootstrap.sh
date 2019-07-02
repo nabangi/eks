@@ -16,6 +16,10 @@ curl -s --location "https://github.com/weaveworks/eksctl/releases/download/lates
 
 echo "Creating SSH Key Pair"
 
+# Set region and setup CLI
+REGION=$(curl --silent http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region)
+aws configure set region $REGION
+
 ssh-keygen -N "" -f ~/.ssh/id_rsa > /dev/null
 aws ec2 import-key-pair --key-name "eks" --public-key-material file://~/.ssh/id_rsa.pub
 
@@ -26,10 +30,6 @@ rm -vf ~/.aws/credentials
 echo "Installing jq"
 
 sudo yum -q install jq -y
-
-# Set region and setup CLI
-REGION=$(curl --silent http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region)
-aws configure set region $REGION
 
 echo "AWS CLI version:"
 

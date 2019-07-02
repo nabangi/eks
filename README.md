@@ -25,7 +25,7 @@ This can be done in the EC2 console, navigate to your EC2 instances, or click th
 | ap-southeast-1       | [Console link](https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Instances:tag:Name=cloud9;sort=instanceState) |
 
  * Select the Cloud9 instance
- * Click Actions > Instance Settings > Attach/replace IAM Role
+ * Click Actions > Instance Settings > Attach/Replace IAM Role
  * Filter the roles, searching for "cloud9"
  * Click Apply once the role is selected
 
