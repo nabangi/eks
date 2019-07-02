@@ -44,3 +44,27 @@ This can be done in the Cloud9 console, navigate to Cloud9 or click the link bel
 ## Setup the Cloud9 environment
 
 The environment will be our workstation for the sessions, with a few setup steps we can get it ready to work with our EKS Clusters
+
+* From within the Cloud9 environment perform the below steps:
+
+  * Click on AWS Cloud9 (top left) > Preferences
+  * Click on AWS SETTINGS > Credentials
+  * Turn off 'AWS managed temporary credentials'
+
+* Change to a dark theme if you prefer:
+
+  * View > Themes > UI Themes > Classic Dark
+
+* Clone the repository:
+
+```bash
+git clone https://github.com/els-syd/eks.git
+```
+
+Run the bootstrap script to install and configure the necessary pre-requisites
+
+```bash
+eks/scripts/bootstrap.sh
+```
+
+
