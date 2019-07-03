@@ -43,7 +43,7 @@ This can be done in the Cloud9 console, navigate to Cloud9 or click the link bel
 
 ## Setup the Cloud9 environment
 
-The environment will be our workstation for the sessions, with a few setup steps we can get it ready to work with our EKS Clusters
+The environment will be our workstation for the sessions, there are a few steps needed to get it setup
 
 * From within the Cloud9 environment perform the below steps:
 
@@ -55,16 +55,24 @@ The environment will be our workstation for the sessions, with a few setup steps
 
   * View > Themes > UI Themes > Classic Dark
 
-* Clone the repository:
+### Clone the repository
 
 ```bash
 git clone https://github.com/els-syd/eks.git
 ```
 
-Run the bootstrap script to install and configure the necessary pre-requisites
+### Run the bootstrap script
+
+The script installs and configures the necessary pre-requisites
 
 ```bash
 eks/scripts/bootstrap.sh
 ```
 
+Confirm the IAM role is as expected
 
+## Launch the EKS Cluster
+
+```bash
+eksctl create cluster --ssh-access --node-type t3.medium --name eks
+```
