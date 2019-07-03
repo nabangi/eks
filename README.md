@@ -74,5 +74,5 @@ Confirm the IAM role is as expected
 ## Launch the EKS Cluster
 
 ```bash
-eksctl create cluster --ssh-access --node-type t3.medium --name eks
+eksctl create cluster --ssh-access --version 1.13 --node-type t3.medium --name eks
 ```
