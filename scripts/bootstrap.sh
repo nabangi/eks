@@ -14,6 +14,11 @@ echo "Installing eksctl"
 
 curl -s --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C ~/bin
 
+echo "Installing IAM authenticator"
+
+curl -so ~/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.13.7/2019-06-11/bin/linux/amd64/aws-iam-authenticator
+chmod +x ~/bin/aws-iam-authenticator
+
 # Set region and setup CLI
 REGION=$(curl --silent http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region)
 aws configure set region $REGION
