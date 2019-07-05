@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install kubectl, eksctl and confirm the AWS CLI version
+# Install kubectl, eksctl, aws-iam-authenticator, create a key pair, and confirm the AWS CLI version
 
 echo "Installing kubectl"
 
@@ -19,6 +19,9 @@ echo "Installing IAM authenticator"
 curl -so ~/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.13.7/2019-06-11/bin/linux/amd64/aws-iam-authenticator
 chmod +x ~/bin/aws-iam-authenticator
 
+# Installing jq, it's overkill for the job, but useful elsewhere
+sudo yum -q install jq -y
+
 # Set region and setup CLI
 REGION=$(curl --silent http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region)
 aws configure set region $REGION
@@ -30,13 +33,8 @@ ssh-keygen -N "" -f ~/.ssh/id_rsa > /dev/null
 # eksctl will use the default SSH key location
 #aws ec2 import-key-pair --key-name "eks" --public-key-material file://~/.ssh/id_rsa.pub
 
-# Clearing temporary credentials
-
+# Clearing Cloud9 temporary credentials
 rm -vf ~/.aws/credentials
-
-# Installing jq
-
-sudo yum -q install jq -y
 
 echo "AWS CLI version:"
 

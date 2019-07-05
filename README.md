@@ -57,13 +57,15 @@ The environment will be our workstation for the sessions, there are a few steps 
 
   * View > Themes > UI Themes > Classic Dark
 
-### Clone the repository
+### Run the below commands in the Cloud9 terminal
+
+#### Clone the repository
 
 ```bash
 git clone https://github.com/els-syd/eks.git
 ```
 
-### Run the bootstrap script
+#### Run the bootstrap script
 
 The script installs and configures the necessary pre-requisites
 
@@ -81,11 +83,25 @@ Before launching the cluster with the command below, ensure the IAM role is corr
 eksctl create cluster --ssh-access --version 1.13 --node-type t3.medium --name eks
 ```
 
-The EKS cluster creation process will take about 15-20 minutes.
+The EKS cluster creation process will take about 15-20 minutes
+
+Once complete, two Worker Nodes should now be in Ready status
+
+```bash
+kubectl get nodes
+```
+
+Example output:
+
+```
+NAME                                               STATUS   ROLES    AGE   VERSION
+ip-192-168-29-29.ap-southeast-1.compute.internal   Ready    <none>   27h   v1.13.7-eks-c57ff8
+ip-192-168-88-24.ap-southeast-1.compute.internal   Ready    <none>   27h   v1.13.7-eks-c57ff8
+```
 
 ## View the EKS Cluster in the console
 
-This can be done in the EKS console, navigate to EKS or click the link below:
+To view the EKS Cluster configuration, navigate to EKS in the console or click the link below:
 
 | Region          | EC2     |
 | --------------- |:------------------:|
@@ -97,11 +113,11 @@ This can be done in the EKS console, navigate to EKS or click the link below:
 
 # Cleanup
 
-After the end of all three sessions, to delete the EKS cluster and Cloud9 environment the below steps can be done
+After the end of all three sessions, follow the below steps to delete the EKS cluster and Cloud9 environment
 
 ## Access the Cloud9 environment
 
-This can be done in the Cloud9 console, navigate to Cloud9 or click the link below:
+This can be done in the Cloud9 console, navigate to Cloud9, or click the link below:
 
 | Region          | EC2     |
 | --------------- |:------------------:|
