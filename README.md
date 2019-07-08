@@ -2,7 +2,7 @@
 
 Follow the below steps to get setup with a Cloud9 environment
 
-## Launch a Cloud9 Environment
+## 1. Launch a Cloud9 Environment
 
 Click the button to begin creating a CloudFormation stack for the region you are assigned
 
@@ -16,7 +16,7 @@ Just before clicking "Create stack" button, please tick "I acknowledge that AWS 
 
 If you get stuck, the CloudFormation template is available [here](https://eks2019.s3-ap-southeast-2.amazonaws.com/cloud9-template.yml)
 
-## Attach the IAM Role to the Cloud9 instance
+## 2. Attach the IAM Role to the Cloud9 instance
 
 This can be done in the EC2 console, navigate to your EC2 instances, or click the link below:
 
@@ -31,7 +31,7 @@ This can be done in the EC2 console, navigate to your EC2 instances, or click th
  * Filter the roles, searching for "cloud9"
  * Click Apply once the role is selected
 
-## Access the Cloud9 environment
+## 3. Access the Cloud9 environment
 
 This can be done in the Cloud9 console, navigate to Cloud9 or click the link below:
 
@@ -43,7 +43,7 @@ This can be done in the Cloud9 console, navigate to Cloud9 or click the link bel
 
  * Click Open IDE
 
-## Setup the Cloud9 environment
+## 4. Setup the Cloud9 environment
 
 The environment will be our workstation for the sessions, there are a few steps needed to get it setup
 
@@ -75,7 +75,7 @@ eks/scripts/bootstrap.sh
 
 Confirm the IAM role is as expected
 
-## Launch the EKS Cluster
+## 5. Launch the EKS Cluster
 
 Before launching the cluster with the command below, ensure the IAM role is correct in the previous step
 
@@ -85,7 +85,7 @@ eksctl create cluster --ssh-access --version 1.13 --node-type t3.medium --name e
 
 The EKS cluster creation process will take about 15-20 minutes
 
-Once complete, two Worker Nodes should now be in Ready status
+Once complete, 2 Worker Nodes should now be in Ready status
 
 ```bash
 kubectl get nodes
@@ -99,7 +99,7 @@ ip-192-168-29-29.ap-southeast-1.compute.internal   Ready    <none>   27h   v1.13
 ip-192-168-88-24.ap-southeast-1.compute.internal   Ready    <none>   27h   v1.13.7-eks-c57ff8
 ```
 
-## View the EKS Cluster in the console
+### View the EKS Cluster in the console
 
 To view the EKS Cluster configuration, navigate to EKS in the console or click the link below:
 
