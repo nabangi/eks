@@ -111,7 +111,7 @@ To view the EKS Cluster configuration, navigate to EKS in the console or click t
 
 ---
 
-# Cleanup
+# Cleanup (Only do this after the end of all three sessions)
 
 After the end of all three sessions, follow the below steps to delete the EKS cluster and Cloud9 environment
 
