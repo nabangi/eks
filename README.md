@@ -4,7 +4,9 @@ Follow the below steps to get setup with a Cloud9 environment
 
 ## 1. Launch a Cloud9 Environment
 
-Click the button to begin creating a CloudFormation stack for the region you are assigned
+Click the button to begin creating a CloudFormation stack for the region you are assigned.
+
+Preferably right click an open it in a new tab.
 
 | Region          | CloudFormation     |
 | --------------- |:------------------:|
@@ -20,6 +22,8 @@ If you get stuck, the CloudFormation template is available [here](https://eks201
 
 This can be done in the EC2 console, navigate to your EC2 instances, or click the link below:
 
+Preferably right click an open it in a new tab.
+
 | Region          | EC2     |
 | --------------- |:------------------:|
 | us-east-1       | [Console link](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:tag:Name=cloud9;sort=instanceState) |
@@ -34,6 +38,9 @@ This can be done in the EC2 console, navigate to your EC2 instances, or click th
 ## 3. Access the Cloud9 environment
 
 This can be done in the Cloud9 console, navigate to Cloud9 or click the link below:
+
+Preferably right click an open it in a new tab.
+
 
 | Region          | EC2     |
 | --------------- |:------------------:|
