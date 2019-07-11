@@ -1,5 +1,11 @@
 # Engineering Learning Series - EKS
 
+## Handouts
+
+* [Day 1 Slides](handouts/day1.pdf)
+
+---
+
 Follow the below steps to get setup with a Cloud9 environment
 
 ## 1. Launch a Cloud9 Environment
