@@ -3,10 +3,13 @@
 ## Handouts
 
 * [Day 1 Slides](handouts/day1.pdf)
+* [Day 2 Slides](handouts/day2.pdf)
 
 ---
 
-Follow the below steps to get setup with a Cloud9 environment
+## Launching an EKS Cluster
+
+Follow the below steps to get setup with a Cloud9 environment and create your Cluster.
 
 ## 1. Launch a Cloud9 Environment
 
