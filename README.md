@@ -4,18 +4,18 @@
 
 ### 1. Frontend
 
-  1.1 -  Download the source code and deploy to your Kubernetes cluster
-   - **You will need a Docker Hub account**, create one if you don't have one yet
-   - If you need to run Docker commands we recommend doing it from the Cloud9 environment
-   - Source code is available here the in the `project/` directory.
-   - Use `awsels/frontend-base` (already in Docker Hub) as the base image
-   - **Important**: The application is configured to listen on TCP/4567
+  * 1.1 -  Download the source code and deploy to your Kubernetes cluster
+    - **You will need a Docker Hub account**, create one if you don't have one yet
+    - If you need to run Docker commands we recommend doing it from the Cloud9 environment
+    - Source code is available here the in the `project/` directory.
+    - Use `awsels/frontend-base` (already in Docker Hub) as the base image
+    - **Important**: The application is configured to listen on TCP/4567
 
-  1.2 - Make sure the frontend is accessible from the internet
+  * 1.2 - Make sure the frontend is accessible from the internet
 
-  1.3 - Test the connection to the frontend
+  * 1.3 - Test the connection to the frontend
 
-  1.4 - Test the connection to the backend (database)
+  * 1.4 - Test the connection to the backend (database)
 
 ### 2. Backend
  - Deploy the following image to your cluster: `awsels/backend`
@@ -43,7 +43,7 @@ Once the project is completed, for bonus points work on the below!
 
 ## Upload your Project feedback
 
-(Event Dashboard)[http://engineerlearningseries.ap-southeast-2.elasticbeanstalk.com]
+[Event Dashboard](http://engineerlearningseries.ap-southeast-2.elasticbeanstalk.com)
 
 ---
 
