@@ -39,11 +39,15 @@ Once the project is completed, for bonus points work on the below!
 
 * Configure health checks for the frontend and backend Pods
 
----
+## Upload your Project assessment
 
-## Upload your Project feedback
+In the `assessment/` directory you'll find a document to fill out for your assessment!
 
-[Event Dashboard](http://engineerlearningseries.ap-southeast-2.elasticbeanstalk.com)
+This can be uploaded at the [Event Dashboard](http://engineerlearningseries.ap-southeast-2.elasticbeanstalk.com)
+
+Login with the email you registered with for the event
+
+Password: kubernetes
 
 ---
 
