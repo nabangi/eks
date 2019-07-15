@@ -1,5 +1,87 @@
 # Engineering Learning Series - EKS
 
+## Final Project
+
+### 1. Frontend
+
+  1.1 -  Download the source code and deploy to your Kubernetes cluster
+   - **You will need a Docker Hub account**, create one if you don't have one yet
+   - If you need to run Docker commands we recommend doing it from the Cloud9 environment
+   - Source code is available here the in the `project/` directory.
+   - Use `awsels/frontend-base` (already in Docker Hub) as the base image
+   - **Important**: The application is configured to listen on TCP/4567
+
+  1.2 - Make sure the frontend is accessible from the internet
+
+  1.3 - Test the connection to the frontend
+
+  1.4 - Test the connection to the backend (database)
+
+### 2. Backend
+ - Deploy the following image to your cluster: `awsels/backend`
+ - The backend is MongoDB running on the default port
+
+### 3. Test
+
+ - Re-test the connection to the backend (database) - make adjustments if necessary
+
+## Bonus points (in any order)
+
+Once the project is completed, for bonus points work on the below!
+
+* Restrict the access to the frontend to a given IP address or range
+
+* Put your image in Amazon ECR repository and update your K8s objects
+
+* Configure the frontend to automatically scale based on CPU utilization
+
+* Migrate to using an Application Load Balancer for the frontend service
+
+* Configure health checks for the frontend and backend Pods
+
+---
+
+## Upload your Project feedback
+
+(Event Dashboard)[http://engineerlearningseries.ap-southeast-2.elasticbeanstalk.com]
+
+---
+
+## Cleanup (only do this at the end of the third session)
+
+Follow the below steps to delete the EKS cluster and Cloud9 environment
+
+## Delete the EKS cluster
+
+This can be done in the Cloud9 console, navigate to Cloud9, or click the link below:
+
+| Region          | EC2     |
+| --------------- |:------------------:|
+| us-east-1       | [Console link](https://us-east-1.console.aws.amazon.com/cloud9/home?region=us-east-1) |
+| us-west-2       | [Console link](https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2) |
+| ap-southeast-1  | [Console link](https://ap-southeast-1.console.aws.amazon.com/cloud9/home?region=ap-southeast-1) |
+
+* Delete the EKS cluster from the Cloud9 terminal with the below command:
+
+```bash
+eksctl delete cluster eks
+```
+
+## Delete the Cloud9 CloudFormation stack
+
+This can be done in the CloudFormation console, navigate to CloudFormation, or click the link below:
+
+| Region          | EC2     |
+| --------------- |:------------------:|
+| us-east-1       | [Console link](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1) |
+| us-west-2       | [Console link](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2) |
+| ap-southeast-1  | [Console link](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1) |
+
+There may be a number of stacks, select the stack named "cloud9", and click the "Delete" button
+
+
+---
+
 ## Handouts
 
 * [Day 1 Slides](handouts/day1.pdf)
