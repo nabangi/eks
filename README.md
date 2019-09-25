@@ -73,6 +73,25 @@ The environment will be our workstation for the sessions, there are a few steps 
 
   * View > Themes > UI Themes > Classic Dark
 
+### Run the below commands in the Cloud9 terminal
+
+#### Clone the repository
+
+```bash
+$ git clone https://github.com/aws-els-cpt/eks.git
+```
+
+#### Run the bootstrap script
+
+The script installs and configures the necessary pre-requisites
+
+```bash
+$ eks/scripts/bootstrap.sh
+```
+
+Confirm the IAM role is as expected
+
+
 ## 5. Launch the EKS Cluster
 
 Before launching the cluster with the command below, ensure the IAM role is correct in the previous step.
