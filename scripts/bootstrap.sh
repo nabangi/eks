@@ -5,19 +5,14 @@
 echo "Installing kubectl"
 
 mkdir ~/bin
-curl -so ~/bin/kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.13.7/2019-06-11/bin/linux/amd64/kubectl
+curl -so ~/bin/kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/kubectl
 chmod +x ~/bin/kubectl
 
 kubectl version --short --client
 
 echo "Installing eksctl"
 
-curl -s --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C ~/bin
-
-echo "Installing IAM authenticator"
-
-curl -so ~/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.13.7/2019-06-11/bin/linux/amd64/aws-iam-authenticator
-chmod +x ~/bin/aws-iam-authenticator
+curl -s --location "https://github.com/weaveworks/eksctl/releases/download/0.6.0/eksctl_Linux_amd64.tar.gz" | tar xz -C ~/bin
 
 # Installing jq, it's overkill for the job, but useful elsewhere
 sudo yum -q install jq -y
