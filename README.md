@@ -92,30 +92,6 @@ $ eks/scripts/bootstrap.sh
 Confirm the IAM role is as expected
 
 
-## 5. Launch the EKS Cluster
-
-Before launching the cluster with the command below, ensure the IAM role is correct in the previous step.
-
-```bash
-$ eksctl create cluster --version 1.14 --node-type t3.medium --name eks
-```
-
-The EKS cluster creation process will take about 15-20 minutes
-
-Once complete, 2 Worker Nodes should now be in Ready status
-
-```bash
-kubectl get nodes
-```
-
-Example output:
-
-```
-NAME                                               STATUS   ROLES    AGE   VERSION
-ip-192-168-29-29.eu-west-1.compute.internal   Ready    <none>   27h   v1.14.6-eks-5047ed
-ip-192-168-88-24.eu-west-1.compute.internal   Ready    <none>   27h   v1.14.6-eks-5047ed
-```
-
 ### View the EKS Cluster in the console
 
 To view the EKS Cluster configuration, navigate to EKS in the console or click the link below:
