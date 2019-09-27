@@ -6,12 +6,12 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: web-server
   template:
     metadata:
       labels:
-        app: nginx
+        app: web-server
     spec:
       containers:
-      - name: nginx
+      - name: server
         image: nginx:1.7.9
