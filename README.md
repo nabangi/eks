@@ -106,6 +106,19 @@ Confirm the IAM role is as expected
 
 ---
 
+# Scaling Down your Worker Nodes
+
+Your voucher should cover the costs for the full period of the learning series but if, between sessions, you want to
+prevent extra costs you can scale down your clusters using `eksctl` as follows:
+
+```bash
+$ eksctl get clusters
+$ eksctl get nodegroup --cluster eks
+$ eksctl scale nodegroup --cluster=eks --nodes=0 ng-xxxxxxx
+```
+
+_Note: As of 2019-09-30 there is a bug with the above command [github/issues/809](https://github.com/weaveworks/eksctl/issues/809)_that does not update the min value of the auto scaling group. To get around this scale the nodes to 0, then to 1 and then to 0 again (using the last command above)._
+
 # Cleanup (Only do this after the end of all three sessions)
 
 After the end of all three sessions, follow the below steps to delete the EKS cluster and Cloud9 environment

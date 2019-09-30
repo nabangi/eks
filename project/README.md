@@ -38,4 +38,21 @@ available & fault tolerant.
 1. Re-test the connnection to the backend from the frontend app - make corrections as necessary.
 
 
-###
+### Bonus Tasks
+
+Once you've completed the above tasks, try the following:
+
+* Restrict the access to the frontend to a given IP address or range
+
+* Put your image in Amazon ECR repository and update your K8s objects
+
+* Configure the frontend to automatically scale based on CPU utilization
+
+* Migrate to using an Application Load Balancer for the frontend service
+
+* Configure health checks for the frontend and backend
+
+
+### Setup - EKS Cluster
+
+If you haven't created a cluster you can do so by following the [setup guidelines](./setup.md).
