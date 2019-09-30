@@ -53,6 +53,14 @@ Once you've completed the above tasks, try the following:
 * Configure health checks for the frontend and backend
 
 
+### Submission
+
+Fill out the assesment in `project/assesment` and upload to the following URL:
+
+https://awseb-awseb-quute4cc9ivo-879591767.eu-west-1.elb.amazonaws.com/
+
+Username will be firstnamesurname all lowercase (i.e. John Snow will be johnsnow), password `Kubernetes`.
+
 ### Setup - EKS Cluster
 
 If you haven't created a cluster you can do so by following the [setup guidelines](./setup.md).
