@@ -1,6 +1,8 @@
 ## AWS Engineering Learning Series - Project
 
-![](./two-tier-application.png)
+<p align="center">
+  <img src="./two-tier-application.png" />
+</p>
 
 ### Objective
 
