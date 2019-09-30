@@ -123,6 +123,23 @@ _Note: As of 2019-09-30 there is a bug with the above command [github/issues/809
 
 After the end of all three sessions, follow the below steps to delete the EKS cluster and Cloud9 environment
 
+## Delete all the Services
+
+Delete all the services of type `LoadBalancer` which have provisioned ELBs in your account:
+
+```bash
+$ # List all services with type LoadBalancer
+$ kubectl get svc --all-namespaces -o json \
+    | jq -r '.items[] | select(.spec.type == "LoadBalancer") | .metadata.name'
+
+# For each of the outputted services do
+$ kubectl delete svc <service name>
+service "<service name>" deleted
+```
+
+Then you can delete the cluster, node group and CloudFormation stack.
+
+
 ## Delete the EKS cluster
 
 This can be done in the Cloud9 console, navigate to Cloud9, or click the link below:
