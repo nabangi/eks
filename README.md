@@ -117,7 +117,7 @@ $ eksctl get nodegroup --cluster eks
 $ eksctl scale nodegroup --cluster=eks --nodes=0 ng-xxxxxxx
 ```
 
-_Note: As of 2019-09-30 there is a bug with the above command [github/issues/809](https://github.com/weaveworks/eksctl/issues/809)_that does not update the min value of the auto scaling group. To get around this scale the nodes to 0, then to 1 and then to 0 again (using the last command above)._
+_Note: As of 2019-09-30 there is a bug with the above command [github/issues/809](https://github.com/weaveworks/eksctl/issues/809) that does not update the min value of the auto scaling group. To get around this scale the nodes to 0, then to 1 and then to 0 again (using the last command above)._
 
 # Cleanup (Only do this after the end of all three sessions)
 
