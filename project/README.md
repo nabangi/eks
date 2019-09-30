@@ -1,5 +1,7 @@
 ## AWS Engineering Learning Series - Project
 
+![](./two-tier-application.png)
+
 ### Objective
 
 You need to put together a 2 tier weh application, hosted in Kubernetes. The
@@ -34,3 +36,4 @@ available & fault tolerant.
 1. Re-test the connnection to the backend from the frontend app - make corrections as necessary.
 
 
+###
