@@ -1,5 +1,4 @@
 # AWS Engineering Learning Series - EKS
-
 ## Labs
 
 - [Lab 1 - Building a Docker Image](./labs/01-docker)
@@ -8,6 +7,9 @@
 - [Lab 4 - Labeling our Pods](./labs/04-labels)
 - [Lab 5 - Deployments](./labs/05-deployments)
 - [Lab 6 - Services](./labs/06-services)
+- [Lab 7 - Ingress](./labs/07-Ingress)
+- [Lab 8 - Namespaces](./labs/08-namespaces)
+- [Lab 9 - HPA](./labs/09-hpa)
 
 
 ## Launching your Lab Environment
@@ -24,11 +26,8 @@ Preferably right click an open it in a new tab.
 
 | Region          | CloudFormation     |
 | --------------- |:------------------:|
-| eu-west-1 (Ireland)       | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=cloud9&templateURL=https://eks2019.s3-ap-southeast-2.amazonaws.com/cloud9-template.yml) |
-| eu-north-1 (Stockholm)       | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/create/review?stackName=cloud9&templateURL=https://eks2019.s3-ap-southeast-2.amazonaws.com/cloud9-template.yml) |
-| us-east-1 (N. Virginia)       | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=cloud9&templateURL=https://eks2019.s3-ap-southeast-2.amazonaws.com/cloud9-template.yml) |
-| us-west-2 (Oregon)       | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=cloud9&templateURL=https://eks2019.s3-ap-southeast-2.amazonaws.com/cloud9-template.yml) |
-| ap-southeast-1 (Singapore)  | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?stackName=cloud9&templateURL=https://eks2019.s3-ap-southeast-2.amazonaws.com/cloud9-template.yml) |
+| eu-central-1 (Frankfurt)       | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?stackName=cloud9&templateURL=https://eks2019.s3-ap-southeast-2.amazonaws.com/cloud9-template.yml) |
+
 
 Just before clicking "Create stack" button, please tick "I acknowledge that AWS CloudFormation might create IAM resources."
 
@@ -44,11 +43,8 @@ Preferably right click an open it in a new tab.
 
 | Region          | EC2     |
 | --------------- |:------------------:|
-| eu-west-1 (Ireland)       | [Console link](https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#Instances:tag:Name=cloud9;sort=instanceState) |
-| eu-north-1 (Stockholm)       | [Console link](https://eu-north-1.console.aws.amazon.com/ec2/v2/home?region=eu-north-1#Instances:tag:Name=cloud9;sort=instanceState) |
-| us-east-1 (N. Virginia)      | [Console link](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:tag:Name=cloud9;sort=instanceState) |
-| us-west-2 (Oregon)       | [Console link](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:tag:Name=cloud9;sort=instanceState) |
-| ap-southeast-1 (Singapore)  | [Console link](https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Instances:tag:Name=cloud9;sort=instanceState) |
+| eu-central-1 (Frankfurt)       | [Console link](https://eu-central-1.console.aws.amazon.com/ec2/v2/home?region=eu-central-1#Instances:tag:Name=cloud9;sort=instanceState) |
+
 
  * Select the Cloud9 instance
  * Click Actions > Instance Settings > Attach/Replace IAM Role
@@ -64,11 +60,7 @@ Preferably right click an open it in a new tab.
 
 | Region          | EC2     |
 | --------------- |:------------------:|
-| eu-west-1 (Ireland)       | [Console link](https://eu-west-1.console.aws.amazon.com/cloud9/home?region=eu-west-1) |
-| eu-north-1 (Stockholm)       | [Console link](https://eu-north-1.console.aws.amazon.com/cloud9/home?region=eu-north-1) |
-| us-east-1 (N. Virginia)      | [Console link](https://us-east-1.console.aws.amazon.com/cloud9/home?region=us-east-1) |
-| us-west-2 (Oregon)        | [Console link](https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2) |
-| ap-southeast-1 (Singapore)  | [Console link](https://ap-southeast-1.console.aws.amazon.com/cloud9/home?region=ap-southeast-1) |
+| eu-central-1 (Frankfurt)       | [Console link](https://eu-central-1.console.aws.amazon.com/cloud9/home?region=eu-central-1) |
 
  * Click Open IDE
 
@@ -91,7 +83,7 @@ The environment will be our workstation for the sessions, there are a few steps 
 #### Clone the repository
 
 ```bash
-$ git clone https://github.com/aws-els-cpt/eks.git
+$ git clone https://github.com/aws-vls-dub/eks.git
 ```
 
 #### Run the bootstrap script
@@ -103,6 +95,36 @@ $ eks/scripts/bootstrap.sh
 ```
 
 Confirm the IAM role is as expected
+
+### Launching the EKS Cluster
+
+Launch your cluster from the Cloud9 environment by running the following `eksctl` command:
+
+```bash
+$ eksctl create cluster --version 1.16 --node-type t3.medium --name eks
+```
+
+### Ensure that you have nodes attached
+
+If you scaled down your cluster on Day 2 you can scale up using `eksctl` as follows:
+
+```bash
+$ eksctl get clusters
+$ eksctl get nodegroup --cluster eks
+$ eksctl scale nodegroup --cluster=eks --nodes=2 ng-xxxxxxx
+```
+---
+### Challenge submission
+
+Please access the page: https://deploymentels.support.aws.dev/ and click at the `Submit Challenge` button.
+
+1. Please Make sure that the image which you build can be accessed publicly. [ dockerhub public repo under your account]
+2. If you sucessfully build the application, add the LoadBalancer URL in a file called url.txt , with the http url **ONLY**
+3. Fill out the assesment in [project/assesment](https://github.com/aws-vls-dub/eks/tree/master/project/assessment) and together with all the yaml files used to solve the problem and zip it and send to: `https://deploymentels.support.aws.dev/#uploadChallange`.
+4. Make sure to zip all the files without upper dir e.g.: `zip -r 01JhonSnow.zip *`
+Note:
+The zip file must be named as: `Name` + `Surname`.zip, e.g.: `01JhonSnow.zip`
+It will only be allowed zip files
 
 ---
 
@@ -146,11 +168,8 @@ This can be done in the Cloud9 console, navigate to Cloud9, or click the link be
 
 | Region          | EC2     |
 | --------------- |:------------------:|
-| eu-west-1 (Ireland)       | [Console link](https://eu-west-1.console.aws.amazon.com/cloud9/home?region=eu-west-1) |
-| eu-north-1 (Stockholm)       | [Console link](https://eu-north-1.console.aws.amazon.com/cloud9/home?region=eu-north-1) |
-| us-east-1 (N. Virginia)      | [Console link](https://us-east-1.console.aws.amazon.com/cloud9/home?region=us-east-1) |
-| us-west-2 (Oregon)       | [Console link](https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2) |
-| ap-southeast-1 (Singapore)  | [Console link](https://ap-southeast-1.console.aws.amazon.com/cloud9/home?region=ap-southeast-1) |
+| eu-central-1 (Frankfurt)       | [Console link](https://eu-central-1.console.aws.amazon.com/cloud9/home?region=eu-central-1) |
+
 
 * Delete the EKS cluster from the Cloud9 terminal with the below command:
 
@@ -164,10 +183,7 @@ This can be done in the CloudFormation console, navigate to CloudFormation, or c
 
 | Region          | EC2     |
 | --------------- |:------------------:|
-| eu-west-1 (Ireland)       | [Console link](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1) |
-| eu-north-1 (Stockholm)       | [Console link](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-north-1) |
-| us-east-1 (N. Virginia)      | [Console link](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1) |
-| us-west-2 (Oregon)       | [Console link](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2) |
-| ap-southeast-1 (Singapore)  | [Console link](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1) |
+| eu-central-1 (Frankfurt)       | [Console link](https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1) |
+
 
 There may be a number of stacks, select the stack named "cloud9", and click the "Delete" button

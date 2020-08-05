@@ -10,7 +10,7 @@ You will need the following to be able to complete this project:
 Launch your cluster from the Cloud9 environment by running the following `eksctl` command:
 
 ```bash
-$ eksctl create cluster --version 1.14 --node-type t3.medium --name eks
+$ eksctl create cluster --version 1.16 --node-type t3.medium --name eks
 ```
 
 ### Ensure that you have nodes attached
