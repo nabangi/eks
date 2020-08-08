@@ -31,7 +31,7 @@ Preferably right click an open it in a new tab.
 
 Just before clicking "Create stack" button, please tick "I acknowledge that AWS CloudFormation might create IAM resources."
 
-If you get stuck, the CloudFormation template is available [here](https://eks2019.s3-ap-southeast-2.amazonaws.com/cloud9-template.yml) and also in this [repo](./cloudformation/cloud9-template.yaml).
+If you get stuck, the CloudFormation template is available [here](https://eks2020.s3.eu-central-1.amazonaws.com/cloud9-template.yaml) and also in this [repo](./cloudformation/cloud9-template.yaml).
 
 ## 2. Attach the IAM Role to the Cloud9 instance
 
