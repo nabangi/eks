@@ -52,7 +52,7 @@ Once you've completed the above tasks, try the following:
 
 * Configure health checks for the frontend and backend
 
-
+<!---
 ### Submission
 
 Please access the page: https://deploymentels.support.aws.dev/ and click at the `Submit Challenge` button.
@@ -65,7 +65,7 @@ Please access the page: https://deploymentels.support.aws.dev/ and click at the 
 Note:
 - The zip file must be named as: `Name` + `Surname`.zip, e.g.: `01JhonSnow.zip`
 - It will **ONLY** be allowed **zip** files
-
+--->
 
 ### Setup - EKS Cluster
 
