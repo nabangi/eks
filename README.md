@@ -113,6 +113,7 @@ $ eksctl get clusters
 $ eksctl get nodegroup --cluster eks
 $ eksctl scale nodegroup --cluster=eks --nodes=2 ng-xxxxxxx
 ```
+<!---
 ---
 ### Challenge submission
 
@@ -125,8 +126,8 @@ Please access the page: https://deploymentels.support.aws.dev/ and click at the 
 Note:
 The zip file must be named as: `Name` + `Surname`.zip, e.g.: `01JhonSnow.zip`
 It will only be allowed zip files
-
 ---
+--->
 
 # Scaling Down your Worker Nodes
 
