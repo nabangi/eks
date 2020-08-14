@@ -120,7 +120,7 @@ Please access the page: https://submissions.vls-kubernetes.support.aws.dev/ and 
 
 1. Please Make sure that the image which you build can be accessed publicly. [ dockerhub public repo under your account]
 2. If you sucessfully build the application, add the LoadBalancer URL in a file called url.txt , with the http url **ONLY**
-3. Fill out the assesment in [assesment/](https://github.com/aws-els-cpt/eks/tree/master/project/assessment) and together with all the yaml files used to solve the problem and zip it and send to: `https://submissions.vls-kubernetes.support.aws.dev#uploadChallange`.
+3. Fill out the assesment in [assesment/](https://github.com/aws-els-cpt/eks/tree/master/project/assessment) and together with all the yaml files used to solve the problem and zip it and send to: https://submissions.vls-kubernetes.support.aws.dev#uploadChallange.
 4. Make sure to zip all the files without under dir e.g.: `zip -r 01JhonSnow.zip *`
 
 Note:
