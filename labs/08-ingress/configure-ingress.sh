@@ -25,13 +25,16 @@ eksctl create iamserviceaccount \
 echo 'Deploying CertManager'
 kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.1.1/cert-manager.yaml
 
+echo 'Waiting 20 seconds for cert-manager to start up...'
+sleep 20
+
 echo 'Adding Parameters to the AWS Load Balancer Controller file'
 sed 's/your-cluster-name/'$CLUSTER'/g' alb-ingress-controller.yaml.bkp > alb-ingress-controller.yaml
 
 echo 'Deploying the AWS Load Balancer Controller'
 kubectl apply -f alb-ingress-controller.yaml
 
-echo 'Waiting 5 seconds...'
-sleep 5
+echo 'Waiting 15 seconds for AWS Load Balancer Controller...'
+sleep 15
 
 kubectl get deployment -n kube-system aws-load-balancer-controller

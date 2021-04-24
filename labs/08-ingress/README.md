@@ -2,6 +2,10 @@
 
 For this lab, you will need to execute the script `~/environment/eks/labs/08-ingress/configure-ingress.sh` to install the AWS Load Balancer Controller in the Cluster. You can check more information regarding the AWS Load Balancer Controller [here](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/) and [here](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html).
 
+```bash
+~/environment/eks/labs/08-ingress/configure-ingress.sh
+```
+
 ## Verify that the AWS Load Balancer Controller is Running
 
  After installing the the Ingress Controller, check that the controller pod is running:
