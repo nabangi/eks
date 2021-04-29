@@ -1,22 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "2048-deployment"
-  namespace: "2048-game"
+  namespace: game-2048
+  name: deployment-2048
 spec:
   selector:
     matchLabels:
-      app: "2048"
+      app.kubernetes.io/name: app-2048
   replicas: 1
   template:
     metadata:
       labels:
+        app.kubernetes.io/name: app-2048
         app: "2048"
     spec:
       containers:
       - image: alexwhen/docker-2048
         imagePullPolicy: Always
-        name: "2048"
+        name: app-2048
         ports:
         - containerPort: 80
         resources:
