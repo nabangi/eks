@@ -1,0 +1,95 @@
+ls
+    2  git clone https://github.com/nabangi/eks.git
+    3  ls
+    4  eks/scripts/bootstrap.sh
+    5  eksctl create cluster --version 1.19 --node-type t3.medium --managed --name eks
+    6  cd eks/labs/01-docker/
+    7  ls
+    8  docker build -t python-app-vls
+    9  docker build -t python-app-vls .
+   10  docker images
+   11  docker run -p 8080:5000 python-app-vls
+   12  curl localhost:8080
+   13  curl localhost:5000
+   14  curl http://0.0.0.0:5000/
+   15  curl http://0.0.0.0:5000
+   16  netstat -p 5000
+   17  docker ps
+   18  eksctl create cluster --version 1.19 --node-type t3.medium --managed --name eksc.;d
+   19  eksctl version
+   20  eksctl create cluster --version 1.19 --node-type t3.medium --managed --name eksc
+   21  eksctl create cluster --version 1.19 --node-type t3.medium --managed --name eks
+   22  eksctl create cluster --version 1.19 --node-type t3.medium --managed --name eksc
+   23  eksctl delete cluster --region=eu-central-1 --name=eks
+   24  eksctl delete cluster --region=eu-central-1 --name=eksc
+   25  eksctl create cluster --version 1.19 --node-type t3.medium --managed --name eks
+   26  eksctl delete cluster --region=eu-central-1 --name=eks
+   27  eksctl create cluster --version 1.19 --node-type t3.medium --managed --name eks
+   28  eksctl get clusters
+   29  kubectl describe configmap -n kube-system aws-auth
+   30  ls
+   31  cd eks/labs/02-pods/
+   32  ls
+   33  cat pod.yaml 
+   34  kubectl apply -f pod.yaml 
+   35  kubectl get pod web-server
+   36  kubectl port-forward pod/web-server 8080:80 &
+   37  kubectl port-forward pod/web-server 8090:80 &
+   38  curl 127.0.0.1:8090
+   39  docker run -it -p 8080:5000 python-app-vls
+   40  fg
+   41  kubectl logs web-servert
+   42  kubectl logs web-server
+   43  kubetcl exec web-server /etc/hostname
+   44  kubectl exec web-server /etc/hostname
+   45  kubectl delete pod web-server
+   46  Kubectl get nodes
+   47  kubectl get nodes
+   48  cd eks/labs/04-labels/
+   49  kubectl apply -f label-pod.yaml 
+   50  kubectl get pods --show labels
+   51  kubectl get pods --show-labels
+   52  cd ..
+   53  kubectl apply -f 05-deployments/deployment.yaml 
+   54  kubectl get deployments
+   55  kubectl scale deployment web-server-deployment --replicas=5
+   56  kubectl get deployments
+   57  kubectl get pod -l app=web-server
+   58  kubectl edit deployment web-server-deployment
+   59  kubectl get pod -l app=web-server
+   60  ls
+   61  kubectl apply -f 06-services/service.yaml 
+   62  kubectl get service
+   63  kubectl get svc web-app
+   64  kubectl get svc web-app -o wide
+   65  kubectl describe svc web-app
+   66  kubectl edit svc web-app
+   67  curl web-app
+   68  kubectl get svc
+   69  curl a779d00e4e6444976b87845549858f37-1989716157.eu-central-1.elb.amazonaws.com
+   70  kubectl apply -f 07-namespaces/namespaces.yaml 
+   71  kubectl get ns
+   72  kubectl run webapp-prod --image=nginx --restart=Never -n prod
+   73  kubectl get pod -n prod
+   74  kubectl run webapp-dev --image=nginx --restart=Never -n dev
+   75  kubectl get pod -n dev
+   76  kubectl expose pod webapp-prod --port=80 -n prod
+   77  kubectl expose pod webapp-dev --port=80 -n dev
+   78  kubectl get all -n pods
+   79  kubectl get all -n prod
+   80  kubectl get all -n dev
+   81  kubectl run curl --image=radial/busyboxplus:curl -it --rm
+   82  ls
+   83  08-ingress/configure-ingress.sh 
+   84  kubectl get deployment -n kube-system aws-load-balancer-controller
+   85  cd 08-ingress/
+   86  kubectl get deployment -n kube-system aws-load-balancer-controller
+   87  configure-ingress.sh 
+   88  /configure-ingress.sh 
+   89  ls
+   90  ./configure-ingress.sh 
+   91  kubectl get deployment -n kube-system aws-load-balancer-controller
+   92  kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controller
+   93  kubectl apply -f 2048-game.yaml
+   94  kubectl get ingress/ingress-2048 -n game-2048
+   95  history
