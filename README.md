@@ -111,11 +111,11 @@ eksctl scale nodegroup --cluster=eks --nodes=2 ng-xxxxxxx
 
 ### Submission
 
-Navigate to <http://k8s-default-ingress-b822b17f21-1767685689.eu-central-1.elb.amazonaws.com/> and click the `Submit Challenge` button.
+Navigate to <https://deploymentvls-cpt.eks.aws.dev/> and click the `Submit Challenge` button.
 
 1. Please Make sure that the image which you build can be accessed publicly (DockerHub public repo under your account)
 2. If you successfully built the application, add the LoadBalancer URL in a file called url.txt , with the http url  **ONLY**
-3. Fill out the assessment in [assessment/](https://github.com/aws-els-cpt/eks/tree/master/project/assessment) together with all the yaml files used to solve the problem, zip it and upload it to: <http://k8s-default-ingress-b822b17f21-1767685689.eu-central-1.elb.amazonaws.com>.
+3. Fill out the assessment in [assessment/](https://github.com/aws-els-cpt/eks/tree/master/project/assessment) together with all the yaml files used to solve the problem, zip it and upload it to: <https://deploymentvls-cpt.eks.aws.dev/>.
 4. Make sure to zip all the files in the directory e.g.: `zip -r 01JohnSnow.zip *`
 
 Note:
