@@ -115,7 +115,7 @@ Navigate to <https://deploymentvls-cpt.eks.aws.dev/> and click the `Submit Chall
 
 1. Please Make sure that the image which you build can be accessed publicly (DockerHub public repo under your account)
 2. If you successfully built the application, add the LoadBalancer URL in a file called url.txt , with the http url  **ONLY**
-3. Fill out the assessment in [assessment/](https://github.com/aws-els-cpt/eks/tree/master/project/assessment) together with all the yaml files used to solve the problem, zip it and upload it to: <https://deploymentvls-cpt.eks.aws.dev/>.
+3. Fill out the assessment in [assessment/](https://github.com/aws-els-cpt/eks/tree/master/project/assessment) together with all the yaml files used to solve the problem, zip it and upload it to: <https://deploymentvls-cpt.eks.aws.dev/#uploadChallange>.
 4. Make sure to zip all the files in the directory e.g.: `zip -r 01JohnSnow.zip *`
 
 Note:
